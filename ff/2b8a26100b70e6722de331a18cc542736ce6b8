@@ -1,0 +1,21 @@
+.github/workflows/backend.yml
+  s_6ef2bd7f1588a4::t_94c70c0819a6a7 9-10
+.github/workflows/frontend.yml
+  s_6ef2bd7f1588a4::t_79d637581c862f 9-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "ff2b8a26100b70e6722de331a18cc542736ce6b8",
+  "prompts": {},
+  "sessions": {
+    "s_6ef2bd7f1588a4": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "f381e6bd-94c1-483e-8bb8-4c4efed12882",
+        "model": "default"
+      },
+      "human_author": "shaunak lad <work.shaunaklad@gmail.com>"
+    }
+  }
+}
