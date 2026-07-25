@@ -8,6 +8,11 @@ spring:
       enabled: true
 
 server:
+  # Render injects PORT and only routes traffic to a service listening on it.
+  # Spring Boot does not read PORT on its own, so without this the app binds 8080,
+  # Render sees no listener, and every request hangs until the deploy is failed
+  # with "no open ports detected". 8080 remains the local default.
+  port: ${PORT:8080}
   # Render terminates TLS in front of the app; without this the app believes every
   # request is plain HTTP and would never emit HSTS.
   forward-headers-strategy: framework
