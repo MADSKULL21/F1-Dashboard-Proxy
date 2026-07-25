@@ -46,7 +46,13 @@ RUN java -Djarmode=tools -jar app.jar extract --destination extracted \
 FROM eclipse-temurin:25-jre-alpine
 WORKDIR /app
 
-RUN addgroup -S spring && adduser -S spring -G spring
+# The Temurin image is built against an Alpine package snapshot, so it ships
+# whatever CVEs have been disclosed since. Upgrading here is what keeps the
+# Trivy gate in CI green; without it the build fails on HIGH findings in
+# transitive OS packages (libexpat, p11-kit) that we never call directly but
+# that are present in the image regardless.
+RUN apk --no-cache upgrade \
+ && addgroup -S spring && adduser -S spring -G spring
 COPY --from=cds --chown=spring:spring /app/extracted/ ./
 USER spring
 
