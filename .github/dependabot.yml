@@ -17,6 +17,22 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    ignore:
+      # These five are declared only so the lockfile is complete on every
+      # platform — they are the dependencies of
+      # @tailwindcss/oxide-wasm32-wasi, which npm otherwise omits from the lock
+      # when resolving on a machine that does not select that variant, breaking
+      # `npm ci` on Linux CI. See docs/decisions.md.
+      #
+      # Their versions must therefore track what oxide-wasm32-wasi requires, not
+      # whatever is newest. Bumping them independently reintroduces the exact
+      # problem the pin was added to prevent: Dependabot's first attempt moved
+      # @emnapi/wasi-threads to ^2.0.1 and installed both majors side by side.
+      - dependency-name: "@emnapi/core"
+      - dependency-name: "@emnapi/runtime"
+      - dependency-name: "@emnapi/wasi-threads"
+      - dependency-name: "@tybys/wasm-util"
+      - dependency-name: "@napi-rs/wasm-runtime"
     groups:
       react:
         patterns:
