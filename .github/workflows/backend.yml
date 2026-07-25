@@ -6,10 +6,9 @@ on:
     paths:
       - "backend/**"
       - ".github/workflows/backend.yml"
+  # Always run on PRs so required status checks on main are never skipped
+  # by path filters (a frontend-only PR would otherwise block forever).
   pull_request:
-    paths:
-      - "backend/**"
-      - ".github/workflows/backend.yml"
 
 # A newer push to the same branch makes an in-flight run irrelevant.
 concurrency:

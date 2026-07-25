@@ -6,10 +6,9 @@ on:
     paths:
       - "frontend/**"
       - ".github/workflows/frontend.yml"
+  # Always run on PRs so required status checks on main are never skipped
+  # by path filters (a backend-only PR would otherwise block forever).
   pull_request:
-    paths:
-      - "frontend/**"
-      - ".github/workflows/frontend.yml"
 
 concurrency:
   group: frontend-${{ github.ref }}
