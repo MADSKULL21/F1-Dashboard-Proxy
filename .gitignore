@@ -1,0 +1,27 @@
+# Backend (Maven / JVM)
+backend/target/
+*.jsa
+
+# Frontend (Node / Vite)
+frontend/node_modules/
+frontend/dist/
+frontend/coverage/
+frontend/.vite/
+
+# Environment — .env.example and .env.development are committed on purpose;
+# anything else may hold a real connection string.
+.env
+.env.local
+.env.*.local
+!frontend/.env.example
+!frontend/.env.development
+
+# Tooling / editor
+.idea/
+*.iml
+.vscode/
+.playwright-mcp/
+
+# OS
+.DS_Store
+Thumbs.db

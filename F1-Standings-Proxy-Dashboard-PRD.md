@@ -65,6 +65,8 @@ F1 fans who want a clean, fast, ad-light view of current standings and the race 
 
 ### 4.1 Driver Standings
 - Displays: position, driver name, nationality flag, constructor, points, wins, podiums, DNFs.
+  - **Amended 2026-07-25:** Jolpica's standings response provides only `points` and `wins`. Podiums and DNFs must be derived by paginating all season results (~220 rows at 100/page) and classifying the `status` field (`Finished`/`Lapped` = classified finish; `Retired`/`Did not start`/etc. = DNF). That aggregation is built in the **Recent Results** feature, which needs it anyway, and the two columns are added to this table at that point. The standings feature ships without them.
+  - **Amended 2026-07-25:** nationality arrives as a demonym (`"Italian"`), not a country code. The backend maps demonym → ISO 3166-1 alpha-2 and returns both; the frontend renders a local SVG flag (not emoji, which has no glyphs on Windows) with the nationality text carrying the accessible meaning.
 - Scoped to current season only (historical seasons are V2).
 - Clicking a driver opens a mini-profile/detail view.
 - **Off-season behavior:** if no current-season data exists yet, show an explicit "season hasn't started" empty state (with next season's start date if determinable from the schedule data) — never a blank or broken-looking table.
@@ -138,7 +140,7 @@ The frontend **never** calls Jolpica directly. All external data access is media
 - **Deployment:** Vercel or Netlify (free tier)
 
 ### 6.3 Backend
-- **Framework:** Spring Boot
+- **Framework:** Spring Boot 4.1.0 on Java 25 (LTS), Maven. Retry and circuit breaking via Resilience4j 2.4.0 (`resilience4j-spring-boot4`). Schema managed by Flyway with `ddl-auto=validate`. *(Versions pinned 2026-07-25; see `docs/decisions.md` for the Boot 4 migration gotchas.)*
 - **Architecture:** layered — Controller → Service → Repository/Client → DTOs — for testability and separation of concerns.
 - **API style:** REST, clean resource-based URLs (e.g. `/api/standings/drivers`, `/api/standings/constructors`, `/api/schedule/upcoming`, `/api/results/recent`, `/api/races/{season}/{round}`).
 - **Error handling:** global exception handling via `@ControllerAdvice`, returning a consistent JSON error shape: `{ code, message, timestamp, path }`.
@@ -162,8 +164,13 @@ The frontend **never** calls Jolpica directly. All external data access is media
 
 MVP tables (minimum viable schema):
 
-- **`season_snapshot`** — periodic cached copy of standings/results data (season, round, payload JSON or normalized columns, `fetched_at` timestamp). This is the fallback-of-last-resort and audit trail described in 4.7 / 6.3.
-- **`races`** (optional normalized alternative/complement to the snapshot) — season, round, circuit, date, status (upcoming/completed).
+**Amended 2026-07-25:** the normalized option is chosen over a JSONB payload, because V2's historical queries need it and retrofitting later would be a migration. Consequence to be aware of: the snapshot-restore path rebuilds the response DTO from rows, so there are two independent mapping paths (Jolpica→DTO and rows→DTO) that can drift apart. A contract test asserting both produce an equivalent DTO from the same fixture is mandatory, not optional.
+
+- **`races`** — season, round, circuit, date, status (upcoming/completed).
+- **`driver_standings`** — season, round, driver_id, position, points, wins.
+- **`constructor_standings`** — season, round, constructor_id, position, points, wins.
+- **`results`** — season, round, driver_id, position, points, status (source for derived podiums/DNFs, see 4.1).
+- Each carries `fetched_at`, serving as the fallback-of-last-resort and audit trail described in 4.7 / 6.3.
 
 V2-ready tables (created later, not populated in MVP):
 - **`users`** — OAuth identity (provider, provider_user_id, email, display_name, created_at). No password field, since auth is OAuth-only (Google/GitHub).
@@ -215,7 +222,7 @@ All responses follow a consistent envelope and the global error format described
 
 - **Frontend:** Vercel/Netlify free tier (static hosting, CDN).
 - **Backend:** Render free tier (containerized Spring Boot, heap-tuned for 512MB).
-- **Database:** Render free Postgres.
+- **Database:** ~~Render free Postgres.~~ **Amended 2026-07-25: Neon free tier.** Render's free Postgres expires 30 days after creation and is deleted 14 days later (1GB, no backups) — at this project's pace the fallback tier would vanish mid-build, which is exactly the failure the resilience chain exists to prevent. Neon's free tier does not expire and is plain Postgres, so no code or migration changes.
 - **Cache:** Upstash free Redis-compatible store.
 - **CI/CD:** GitHub Actions pipeline — lint → test → build → deploy on push to `main`.
 - **Known tradeoff:** free-tier backend cold starts (30–50s) after inactivity; mitigated by cache-first reads once warm, and acceptable given the "basic uptime is fine" NFR.

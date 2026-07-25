@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: f1-dashboard-api
+  threads:
+    virtual:
+      # Java 25: upstream calls to Jolpica are I/O-bound, and virtual threads keep
+      # memory per in-flight request low, which matters under a 512MB ceiling.
+      enabled: true
+
+server:
+  # Render terminates TLS in front of the app; without this the app believes every
+  # request is plain HTTP and would never emit HSTS.
+  forward-headers-strategy: framework
+  shutdown: graceful
+  error:
+    # The global @ControllerAdvice owns error responses; never leak Spring's default body.
+    include-message: never
+    include-stacktrace: never
+    include-binding-errors: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # Broadened in F3 (observability). Kept minimal until then.
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+app:
+  # Filtered by the Spring Boot parent's resource plugin at build time.
+  version: @project.version@
+  cors:
+    # Overridden per environment. Exact origins only — never a wildcard (PRD 5).
+    allowed-origins:
+      - http://localhost:5173
+
+logging:
+  level:
+    root: INFO
+    com.f1dashboard.api: DEBUG
