@@ -60,7 +60,7 @@ jobs:
         run: docker build -t f1-dashboard-api:${{ github.sha }} .
 
       - name: Scan image for known vulnerabilities
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: f1-dashboard-api:${{ github.sha }}
           format: table
