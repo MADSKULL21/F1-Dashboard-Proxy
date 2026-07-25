@@ -1,0 +1,19 @@
+backend/Dockerfile
+  s_59a00815f1a04f::t_071aab68af3201 49-55
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "4da47e884b5e203de17bff551f3c284dca807846",
+  "prompts": {},
+  "sessions": {
+    "s_59a00815f1a04f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0237255e-1393-4859-a81d-cf367942b204",
+        "model": "claude-opus-5"
+      },
+      "human_author": "shaunak lad <work.shaunaklad@gmail.com>"
+    }
+  }
+}
