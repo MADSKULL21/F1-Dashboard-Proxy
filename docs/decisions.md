@@ -297,6 +297,40 @@ configs, and without `paths` there it writes components into a literal `@`
 directory. Note that TypeScript 6 removed `baseUrl`, so `paths` is relative to
 the config file and `baseUrl` must not be reintroduced.
 
+### Deployment: verified against the live services
+
+Provisioned 2026-07-25 and confirmed with real round-trips, not just config reads.
+
+| Piece | Value |
+|---|---|
+| Backend | `https://f1-dashboard-proxy.onrender.com` — Render, Docker, `rootDir: backend`, Oregon, free |
+| Health check | `/api/health` (set on the service, so a bad deploy fails fast) |
+| Postgres | Neon `misty-forest-24114418`, `aws-us-east-2`, **PostgreSQL 18.4** |
+| Redis | Upstash `f1-dashboard-cache`, global with primary `us-west-2`, **redis_version 8.2.0** |
+
+Findings worth keeping:
+
+- **Render injects `PORT` and only routes to a service listening on it.** Spring
+  Boot does not read it, so the first two deploys failed in ~6 seconds with no
+  open ports detected, and requests to the URL hung indefinitely rather than
+  erroring. Fixed with `server.port: ${PORT:8080}`.
+- **HSTS over real TLS is now confirmed working** — it could not be tested
+  locally, and it validates `forward-headers-strategy: framework` plus the
+  `X-Forwarded-Proto` check in `SecurityHeadersFilter`.
+- **Neon's API hands back the *pooler* endpoint; we use the direct one.**
+  PgBouncer transaction pooling breaks Hibernate's prepared statements, and
+  HikariCP already pools. Neon's own guidance is the direct endpoint for JVM
+  apps.
+- **Upstash has deprecated regional databases** — creation must be `region:
+  global` with a `primary_region`. A regional create returns
+  `"regional db creation is deprecated"`.
+- **Render's env-var API `PUT` replaces the entire set**, so every variable has
+  to be sent on every update or the others are silently dropped.
+- Container versions in `docker-compose.yml` were bumped from Postgres 17 /
+  Redis 7 to **18 / 8** to match what the live services actually report. Drift
+  here would make the Testcontainers suite prove things about the wrong
+  database.
+
 ### `/api/health` is outside the `{ data, meta }` envelope
 
 It has no season, round or upstream provenance to report. Actuator stays mounted
