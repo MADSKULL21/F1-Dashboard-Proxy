@@ -9,24 +9,12 @@
       content="Formula 1 driver and constructor standings, race schedule and results. Fast, clean and ad-free."
     />
     <title>F1 Dashboard — Standings, Schedule &amp; Results</title>
-    <script>
-      // Applies the stored theme before React mounts. Without this the page
-      // paints in light mode and then flips, which is both ugly and, for
-      // light-sensitive users, genuinely unpleasant.
-      ;(function () {
-        try {
-          var stored = localStorage.getItem('f1-theme')
-          var dark =
-            stored === 'dark' ||
-            ((stored === 'system' || stored === null) &&
-              window.matchMedia('(prefers-color-scheme: dark)').matches)
-          if (dark) document.documentElement.classList.add('dark')
-          document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
-        } catch (e) {
-          /* no stored preference available; React will resolve it on mount */
-        }
-      })()
-    </script>
+    <!--
+      Applies the stored theme before first paint. Must stay external (not
+      inline) to satisfy the production CSP's script-src 'self' — see the file
+      for the full reasoning.
+    -->
+    <script src="/theme-init.js"></script>
   </head>
   <body>
     <div id="root"></div>

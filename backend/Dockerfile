@@ -56,6 +56,8 @@ RUN apk --no-cache upgrade \
 COPY --from=cds --chown=spring:spring /app/extracted/ ./
 USER spring
 
+# Documentation only — the actual bind port comes from PORT at runtime (Render
+# injects it). EXPOSE does not restrict which port the process listens on.
 EXPOSE 8080
 
 # Render free tier ceiling is 512MB for the whole container, not just the heap.
