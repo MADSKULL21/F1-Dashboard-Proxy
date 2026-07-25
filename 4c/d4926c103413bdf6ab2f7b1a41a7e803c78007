@@ -1,0 +1,19 @@
+F1-Standings-Proxy-Dashboard-PRD.md
+  s_b612a5d69deb7e::t_8fd5b96e4d5175 1-261
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "4cd4926c103413bdf6ab2f7b1a41a7e803c78007",
+  "prompts": {},
+  "sessions": {
+    "s_b612a5d69deb7e": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "3e7c44bd-1643-4ace-aefe-be8f9bc4b5ec",
+        "model": "unknown"
+      },
+      "human_author": "shaunak lad <work.shaunaklad@gmail.com>"
+    }
+  }
+}
