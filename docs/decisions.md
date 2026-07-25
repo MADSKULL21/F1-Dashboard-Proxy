@@ -250,6 +250,36 @@ path-traversal advisory. We never run that MCP server, but the override pins it
 forward so the audit is clean rather than muted. Components are added with
 `npx shadcn@latest` rather than a local CLI install.
 
+### Five phantom devDependencies exist purely for lockfile completeness
+
+`@emnapi/core`, `@emnapi/runtime`, `@emnapi/wasi-threads`, `@tybys/wasm-util`
+and `@napi-rs/wasm-runtime` are **not used by our code**. They are the
+dependencies of `@tailwindcss/oxide-wasm32-wasi`, one of the optional
+platform variants of Tailwind 4's native engine.
+
+npm records the optional variant itself in the lockfile but *not* its
+sub-dependencies when resolving on a platform that does not select it. The
+result: a lockfile generated on macOS makes `npm ci` fail on Linux with
+"Missing: @emnapi/core from lock file", so CI breaks while local development is
+fine.
+
+- **Rejected:** generating the lockfile inside a Linux container. It works, but
+  any subsequent plain `npm install` on macOS silently strips the entries again
+  and the breakage only appears in CI. Verified experimentally — a local install
+  took the lock from 23 `emnapi` entries down to 13.
+- **Rejected:** `npm install` instead of `npm ci` in CI, which throws away
+  lockfile determinism.
+- **Why this instead:** direct dependencies are recorded on every platform, so
+  the lockfile is now complete regardless of who installs where. Verified: lock
+  is byte-identical across repeat installs, and `npm ci` exits 0 in a Linux
+  container.
+- **Cost accepted:** five entries a reader will not recognise, and Dependabot
+  will offer to bump them (grouped under dev-dependencies). Versions are pinned
+  to the ranges oxide-wasm32-wasi asks for, so npm does not install two majors
+  side by side.
+- **Remove when:** npm learns to record optional sub-trees cross-platform, or
+  Tailwind stops shipping a wasi variant.
+
 ### Contrast measured, not assumed
 
 All six token pairs were measured in both themes by resolving the OKLCH values
