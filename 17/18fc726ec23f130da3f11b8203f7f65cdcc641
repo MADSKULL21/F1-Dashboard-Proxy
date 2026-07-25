@@ -1,0 +1,188 @@
+frontend/tsconfig.node.json
+  s_59a00815f1a04f::t_2caedf998b700e 1-23
+backend/src/test/java/com/f1dashboard/api/health/HealthControllerTest.java
+  s_59a00815f1a04f::t_8aef783c95d208 1-4,6-26
+  s_59a00815f1a04f::t_8647f5c1159fcc 5
+backend/src/main/java/com/f1dashboard/api/common/ResponseMeta.java
+  s_59a00815f1a04f::t_2c4e9feee1c350 1-22
+.github/workflows/dependency-review.yml
+  s_59a00815f1a04f::t_a9f0c0c3d7527e 1-18
+frontend/src/store/index.ts
+  s_59a00815f1a04f::t_a294ae6c0f5bb4 1-24
+frontend/src/index.css
+  s_59a00815f1a04f::t_4bb431b8c53404 2-130
+  s_59a00815f1a04f::t_fd2ea771802293 1
+frontend/src/store/api.ts
+  s_59a00815f1a04f::t_9f3c193dae158e 1-46
+frontend/tsconfig.json
+  s_59a00815f1a04f::t_e697e917459bf6 6-11
+  s_59a00815f1a04f::t_2caedf998b700e 1-5,12
+backend/.gitattributes
+  s_59a00815f1a04f::t_c3946ad5e3855e 1-2
+backend/src/test/java/com/f1dashboard/api/config/CorsIntegrationTest.java
+  s_59a00815f1a04f::t_96064cdc4c3432 1-4,6-54
+  s_59a00815f1a04f::t_8647f5c1159fcc 5
+backend/src/main/java/com/f1dashboard/api/common/ResourceNotFoundException.java
+  s_59a00815f1a04f::t_d15aaf7d628fb2 1-15
+backend/src/main/java/com/f1dashboard/api/config/CorsProperties.java
+  s_59a00815f1a04f::t_215dba2923a02b 1-13
+backend/src/main/java/com/f1dashboard/api/health/HealthController.java
+  s_59a00815f1a04f::t_8c780053ac07ca 1-34
+backend/pom.xml
+  s_59a00815f1a04f::t_bead895d037bbf 8
+  s_59a00815f1a04f::t_c3946ad5e3855e 1-7,9-72
+frontend/src/main.tsx
+  s_59a00815f1a04f::t_2caedf998b700e 1-2,6,10-12,20-21
+  s_59a00815f1a04f::t_8af9c1c55a2577 3-5,7-9,13-19
+frontend/tsconfig.app.json
+  s_59a00815f1a04f::t_d7b3b1d153a306 7-11
+  s_59a00815f1a04f::t_2caedf998b700e 1-6,12-30
+.gitignore
+  s_59a00815f1a04f::t_218058fc4d5404 1-27
+backend/.mvn/wrapper/maven-wrapper.properties
+  s_59a00815f1a04f::t_c3946ad5e3855e 1-3
+frontend/public/favicon.svg
+  s_59a00815f1a04f::t_2caedf998b700e 1
+frontend/.oxlintrc.json
+  s_59a00815f1a04f::t_0141e54c6e9dc6 4
+  s_59a00815f1a04f::t_2caedf998b700e 1-3,5-9
+backend/src/main/java/com/f1dashboard/api/common/ApiResponse.java
+  s_59a00815f1a04f::t_6e62132c55daa1 1-23
+backend/src/test/java/com/f1dashboard/api/common/ErrorEnvelopeIntegrationTest.java
+  s_59a00815f1a04f::t_37a2148de2891f 1-4,6-74
+  s_59a00815f1a04f::t_8647f5c1159fcc 5
+README.md
+  s_59a00815f1a04f::t_a29405b9e3555e 1-114
+backend/src/test/java/com/f1dashboard/api/F1DashboardApiApplicationTests.java
+  s_59a00815f1a04f::t_c3946ad5e3855e 1-13
+backend/src/main/java/com/f1dashboard/api/config/SecurityHeadersFilter.java
+  s_59a00815f1a04f::t_6489c8805f45db 1-59
+backend/mvnw.cmd
+  s_59a00815f1a04f::t_c3946ad5e3855e 1-189
+backend/src/main/java/com/f1dashboard/api/F1DashboardApiApplication.java
+  s_59a00815f1a04f::t_c3946ad5e3855e 1-13
+backend/Dockerfile
+  s_59a00815f1a04f::t_c74ad1fac70bbf 1-73
+frontend/src/features/health/api-status.test.tsx
+  s_59a00815f1a04f::t_ad0a23f99af991 1-54
+frontend/src/App.tsx
+  s_59a00815f1a04f::t_89bd4231deddfb 1-11,13-17
+  s_59a00815f1a04f::t_2caedf998b700e 12,18-19
+frontend/package.json
+  s_59a00815f1a04f::t_d1d8d544c12ef1 2,10-13,34,46
+  s_59a00815f1a04f::t_fcdd07cab4a483 30-32
+  s_59a00815f1a04f::t_4bb431b8c53404 17,19-20,22,27-28
+  s_59a00815f1a04f::t_2caedf998b700e 1,3-9,14-16,23,29,33,39-41,44,47,50-51
+  s_59a00815f1a04f::t_8a1044d669b367 18,21,24-25,35-38,42-43,48-49
+  s_59a00815f1a04f::t_e5b536f4e6d38b 26
+  s_59a00815f1a04f::t_418387c63dc702 45
+frontend/components.json
+  s_59a00815f1a04f::t_4bb431b8c53404 1-25
+frontend/src/theme/theme-context.ts
+  s_59a00815f1a04f::t_3faed32db35549 1-17
+backend/src/test/java/com/f1dashboard/api/config/SecurityHeadersIntegrationTest.java
+  s_59a00815f1a04f::t_03756a14c443ef 1-4,6-55
+  s_59a00815f1a04f::t_8647f5c1159fcc 5
+frontend/src/theme/use-theme.ts
+  s_59a00815f1a04f::t_9a9bdd579c5c62 1-11
+frontend/src/components/theme-toggle.tsx
+  s_59a00815f1a04f::t_9d3162dbe0fe51 1-52
+frontend/.gitignore
+  s_59a00815f1a04f::t_2caedf998b700e 1-24
+frontend/vercel.json
+  s_59a00815f1a04f::t_d2f8ed3cb106a8 1-26
+backend/src/main/java/com/f1dashboard/api/common/ApiError.java
+  s_59a00815f1a04f::t_910e3ea4235bc6 1-18
+.github/workflows/frontend.yml
+  s_59a00815f1a04f::t_617258d72bc26e 1-25,27-45
+  s_59a00815f1a04f::t_bfa394147a1de1 26
+frontend/src/test/setup.ts
+  s_59a00815f1a04f::t_b4b576be9e702f 1-24
+frontend/src/test/render.tsx
+  s_59a00815f1a04f::t_82606bdf9b5bc7 1-25
+frontend/src/features/health/api-status.tsx
+  s_59a00815f1a04f::t_9052a1688bd132 1-27,31-60
+  s_59a00815f1a04f::t_8d537ab6a4874b 28-30
+docker-compose.yml
+  s_59a00815f1a04f::t_4bd8ae3fb20004 1-42
+frontend/.env.example
+  s_59a00815f1a04f::t_d1d8b803354916 1-9
+backend/.gitignore
+  s_59a00815f1a04f::t_c3946ad5e3855e 1-33
+frontend/vite.config.ts
+  s_59a00815f1a04f::t_2caedf998b700e 4,7-8,29
+  s_59a00815f1a04f::t_a62537d6b330a2 1-3,9-28
+  s_59a00815f1a04f::t_3bd86d5d08c1fe 5-6
+backend/src/main/java/com/f1dashboard/api/common/DataOrigin.java
+  s_59a00815f1a04f::t_ede32514293459 1-19
+backend/src/main/java/com/f1dashboard/api/common/GlobalExceptionHandler.java
+  s_59a00815f1a04f::t_32d654711eda4e 1-57
+frontend/src/components/app-layout.tsx
+  s_59a00815f1a04f::t_d281119fda01ef 1-33
+F1-Standings-Proxy-Dashboard-PRD.md
+  s_59a00815f1a04f::t_069de78b52f1e3 68-69
+  s_59a00815f1a04f::t_75da38e75fabd5 167-173
+  s_59a00815f1a04f::t_c6050044827987 225
+  s_59a00815f1a04f::t_cae7da97b1b969 143
+backend/src/main/resources/application.yml
+  s_59a00815f1a04f::t_939555438d0e27 1-43
+frontend/.env.development
+  s_59a00815f1a04f::t_8254beb32fe7d9 1
+.github/dependabot.yml
+  s_59a00815f1a04f::t_8a029c9ba5581b 1-32
+backend/src/main/java/com/f1dashboard/api/config/CorsConfig.java
+  s_59a00815f1a04f::t_164e1e5b152c87 1-29
+docs/decisions.md
+  s_59a00815f1a04f::t_1fbb56bf7bfdc7 1-273
+frontend/index.html
+  s_59a00815f1a04f::t_e2947e7ec82010 7-29
+  s_59a00815f1a04f::t_2caedf998b700e 1-6,30-35
+.github/workflows/backend.yml
+  s_59a00815f1a04f::t_f407a6e6fe32ba 1-69
+backend/src/test/java/com/f1dashboard/api/common/ApiResponseContractIntegrationTest.java
+  s_59a00815f1a04f::t_8647f5c1159fcc 8
+  s_59a00815f1a04f::t_02bafa41e3929a 1-7,9-90
+backend/mvnw
+  s_59a00815f1a04f::t_c3946ad5e3855e 1-295
+frontend/src/components/theme-toggle.test.tsx
+  s_59a00815f1a04f::t_93966c6b5e04b3 1-63
+frontend/src/theme/theme-provider.tsx
+  s_59a00815f1a04f::t_e260acdb34303e 1-72
+frontend/package-lock.json
+  s_59a00815f1a04f::t_ff56fddb7ef6c5 1-9344
+frontend/src/components/ui/alert.tsx
+  s_59a00815f1a04f::t_7abd12229c738f 1-76
+frontend/src/components/ui/badge.tsx
+  s_59a00815f1a04f::t_e228a8865eb497 1-49
+frontend/src/components/ui/button.tsx
+  s_59a00815f1a04f::t_857dc35814df48 1-67
+frontend/src/components/ui/card.tsx
+  s_59a00815f1a04f::t_6e01c4f2d6098d 1-103
+frontend/src/components/ui/dropdown-menu.tsx
+  s_59a00815f1a04f::t_a3376e7f81973f 1-267
+frontend/src/components/ui/skeleton.tsx
+  s_59a00815f1a04f::t_345a7509f542b3 1-13
+frontend/src/lib/utils.ts
+  s_59a00815f1a04f::t_661927e9897440 1-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "1718fc726ec23f130da3f11b8203f7f65cdcc641",
+  "prompts": {},
+  "humans": {
+    "h_6d38fd9259e0e0": {
+      "author": "shaunak lad <work.shaunaklad@gmail.com>"
+    }
+  },
+  "sessions": {
+    "s_59a00815f1a04f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0237255e-1393-4859-a81d-cf367942b204",
+        "model": "claude-opus-5"
+      },
+      "human_author": "shaunak lad <work.shaunaklad@gmail.com>"
+    }
+  }
+}
