@@ -1,0 +1,20 @@
+docs/superpowers/plans/2026-09-01-driver-standings.md
+  s_af6c2270ba4123::t_7c3c173dc83d40 1-2401,2403-2639,2641-2846,2848-2917
+  s_af6c2270ba4123::t_3052eb4d12e2b7 2402,2640,2847,2918
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "6079a04c98b9769ba1a75c8584280ebe3e05d4cb",
+  "prompts": {},
+  "sessions": {
+    "s_af6c2270ba4123": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7913b4be-d1e6-4106-a50e-69587f1818b9",
+        "model": "unknown"
+      },
+      "human_author": "shaunak lad <work.shaunaklad@gmail.com>"
+    }
+  }
+}
