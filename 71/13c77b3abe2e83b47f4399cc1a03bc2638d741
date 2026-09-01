@@ -1,0 +1,27 @@
+.gitignore
+  s_af6c2270ba4123::t_7f24371ec77997 28-30
+docs/superpowers/specs/2026-09-01-driver-standings-design.md
+  s_af6c2270ba4123::t_cb5498d0552f3a 1-102,106-222,245-320,327-335,339-380,382-400,409-416
+  s_af6c2270ba4123::t_e6db21248f3309 336-338
+  s_af6c2270ba4123::t_20bb831033d417 103-105
+  s_af6c2270ba4123::t_d3f2c2bfe399ad 321-326
+  s_af6c2270ba4123::t_b39dd0ae8600a7 401-408
+  s_af6c2270ba4123::t_2506e5585aca2d 223-244
+  s_af6c2270ba4123::t_2e216535a5ffde 381
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "7113c77b3abe2e83b47f4399cc1a03bc2638d741",
+  "prompts": {},
+  "sessions": {
+    "s_af6c2270ba4123": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7913b4be-d1e6-4106-a50e-69587f1818b9",
+        "model": "claude-opus-5"
+      },
+      "human_author": "shaunak lad <work.shaunaklad@gmail.com>"
+    }
+  }
+}
