@@ -25,3 +25,6 @@ frontend/.vite/
 # OS
 .DS_Store
 Thumbs.db
+
+# Superpowers visual brainstorming companion (local mockups, not build output)
+.superpowers/
